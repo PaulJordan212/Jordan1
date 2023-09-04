@@ -1,0 +1,42 @@
+# Define the daily calorie limit for weight loss
+calorie_limit = 1500
+
+# Initialize a variable to keep track of consumed calories
+total_calories = 0
+
+# Set the initial weight
+weight = 80
+
+# Define a loop to track daily calorie consumption
+while True:
+    # Prompt the user to enter the calories consumed for the day
+    calories_consumed = input("Enter the calories consumed today (or 'q' to quit): ")
+
+    # Check if the user wants to quit the program
+    if calories_consumed == "q":
+        break
+
+    # Convert the input to an integer
+    calories_consumed = int(calories_consumed)
+
+    # Update the total calories consumed
+    total_calories += calories_consumed
+
+    # Check if the calorie limit is exceeded
+    if total_calories > calorie_limit:
+        print("Calorie limit exceeded!")
+
+    # Prompt the user to enter their weight
+    weight = float(input("Enter your weight today: "))
+
+# Calculate the calorie deficit or surplus
+calorie_difference = total_calories - calorie_limit
+
+# Calculate the weight loss or gain
+weight_difference = calorie_difference / 7700
+
+# Print the results
+if calorie_difference < 0:
+    print("Congratulations! You have a calorie deficit of", abs(calorie_difference), "and you may expect a weight loss of approximately", abs(weight_difference), "kg.")
+else:
+    print("Oops! You have a calorie surplus of", calorie_difference, "and you may expect a weight gain of approximately", weight_difference, "kg.")
